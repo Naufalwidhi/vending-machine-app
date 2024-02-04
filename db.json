@@ -1,0 +1,39 @@
+{
+    "foods": [
+        {
+            "id": 1,
+            "name": "Biskuit",
+            "price": 6000,
+            "stock": 10,
+            "image_url": "/assets/biscuit.jpg"
+        },
+        {
+            "id": 2,
+            "name": "Chips",
+            "price": 8000,
+            "stock": 8,
+            "image_url": "/assets/chips.jpeg"
+        },
+        {
+            "id": 3,
+            "name": "Oreo",
+            "price": 10000,
+            "stock": 5,
+            "image_url": "/assets/oreo.jpeg"
+        },
+        {
+            "id": 4,
+            "name": "Tango",
+            "price": 12000,
+            "stock": 7,
+            "image_url": "/assets/tango.jpeg"
+        },
+        {
+            "id": 5,
+            "name": "Cokelat",
+            "price": 15000,
+            "stock": 3,
+            "image_url": "/assets/cocholate.jpeg"
+        }
+    ]
+}
