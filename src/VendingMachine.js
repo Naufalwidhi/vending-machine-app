@@ -9,6 +9,9 @@ const VendingMachine = () => {
     const [totalCoins, setTotalCoins] = useState(0);
     const [insufficientFundsModal, setInsufficientFundsModal] = useState(false);
     const [emptyStockModal, setEmptyStockModal] = useState(false);
+    const [successOrderModal, setSuccessOrderModal] = useState(false);
+    const [purchasedProductName, setPurchasedProductName] = useState('');
+    const [remainingAmount, setRemainingAmount] = useState(0);
 
     const handleInsertCoin = (value) => {
         setTotalCoins(totalCoins + value);
@@ -26,7 +29,11 @@ const VendingMachine = () => {
                 const updatedFoodList = foods.map(item =>
                     item.id === food.id ? { ...item, stock: item.stock - 1 } : item
                 );
+
                 setFoods(updatedFoodList);
+                setPurchasedProductName(food.name);
+                setRemainingAmount(remainingAmount);
+                setSuccessOrderModal(true);
 
                 return true;
             } else {
@@ -44,6 +51,7 @@ const VendingMachine = () => {
     const handleCloseModal = () => {
         setInsufficientFundsModal(false);
         setEmptyStockModal(false);
+        setSuccessOrderModal(false);
     };
 
     const [foods, setFoods] = useState([]);
@@ -66,6 +74,12 @@ const VendingMachine = () => {
                 </div>
                 <Modal isOpen={insufficientFundsModal} onClose={handleCloseModal} message="Insufficient funds. Please insert more coins." />
                 <Modal isOpen={emptyStockModal} onClose={handleCloseModal} message="Sorry, this item is out of stock." />
+                <Modal
+                    isOpen={successOrderModal}
+                    onClose={handleCloseModal}
+                    message={`Order successful! Enjoy your ${purchasedProductName}. Remaining amount: Rp. ${remainingAmount}`}
+                    isSuccess
+                />
             </div>
         </div>
     );
